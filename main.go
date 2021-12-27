@@ -15,17 +15,23 @@ func main() {
 	flag.Parse()
 
 	if *host == "" || *limit == "" {
-		model.Helpers(flag)
+
+		model.Helpers()
+		flag.PrintDefaults()
+		model.Signature()
 		return
 	}
 
 	i, err := strconv.Atoi(*limit)
 
 	if err != nil {
-		fmt.Printf("Helpers: \n")
+		model.Helpers()
 		flag.PrintDefaults()
+		model.Signature()
 		return
 	}
 
 	model.GetOpenPorts(*host, model.Range{Start: 0, End: i})
+
+	model.Signature()
 }

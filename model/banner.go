@@ -20,9 +20,14 @@ func ShowBanner() string {
 `
 }
 
-func Helpers(f flag) {
-
+func Helpers() {
 	fmt.Printf("Helpers: \n")
-	f.PrintDefaults()
+}
 
+func Signature() {
+
+	name := "Desenvolvedor: Higor Diego \n"
+	padded := fmt.Sprintf("%12v", name)
+
+	fmt.Printf(padded)
 }

@@ -1,10 +1,35 @@
 package main
 
 import (
+	"flag"
+	"fmt"
+	"strconv"
+
 	"github.com/higordiego/learning-golang-scanport/model"
 )
 
 func main() {
 
-	model.GetOpenPorts("api.reportfy.com.br", model.Range{Start: 0, End: 85})
+	fmt.Println(model.ShowBanner())
+
+	host := flag.String("h", "", "Domains and ip for scan. (Required)")
+	limit := flag.String("l", "int", "Limit port scan. (Required)")
+	flag.Parse()
+
+	if *host == "" || *limit == "" {
+
+		fmt.Printf("Helpers: \n")
+		flag.PrintDefaults()
+		return
+	}
+
+	i, err := strconv.Atoi(*limit)
+
+	if err != nil {
+		fmt.Printf("Helpers: \n")
+		flag.PrintDefaults()
+		return
+	}
+
+	model.GetOpenPorts(*host, model.Range{Start: 0, End: i})
 }

@@ -5,7 +5,7 @@
  Projeto foi criado com intuito de criação de uma sniffer de portas abertas em
  servidores internos.
 
-As tecnologias usada foi:
+O golang foi utilizada para o desenvolvimento desse sistema.
 
 <p align="center" justify-content="center">
 <img src="https://go.dev/images/gophers/motorcycle.svg" width="300">

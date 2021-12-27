@@ -1,5 +1,9 @@
 package model
 
+import (
+	"fmt"
+)
+
 func ShowBanner() string {
 	return `
 ▓█████▄  ▒█████    ▄████      ██████  ▄████▄   ▄▄▄       ███▄    █ 
@@ -14,4 +18,11 @@ func ShowBanner() string {
  ░                                   ░                             
 
 `
+}
+
+func Helpers(f flag) {
+
+	fmt.Printf("Helpers: \n")
+	f.PrintDefaults()
+
 }

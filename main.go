@@ -9,17 +9,13 @@ import (
 )
 
 func main() {
-
 	fmt.Println(model.ShowBanner())
-
 	host := flag.String("h", "", "Domains and ip for scan. (Required)")
 	limit := flag.String("l", "int", "Limit port scan. (Required)")
 	flag.Parse()
 
 	if *host == "" || *limit == "" {
-
-		fmt.Printf("Helpers: \n")
-		flag.PrintDefaults()
+		model.Helpers(flag)
 		return
 	}
 

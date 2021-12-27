@@ -26,8 +26,9 @@ func Helpers() {
 
 func Signature() {
 
-	name := "Desenvolvedor: Higor Diego \n"
-	padded := fmt.Sprintf("%12v", name)
+	space := "\n----------------------------\n Informações\n"
+	name := "\n- [x] Autor: Higor Diego \n- [x] Github: https://github.com/higordiego\n- [x] Email: higordiegoti@gmail.com\n"
+	padded := fmt.Sprintf("%v %v \n", space, name)
 
 	fmt.Printf(padded)
 }

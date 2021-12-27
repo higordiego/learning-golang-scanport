@@ -93,6 +93,7 @@ func ScanPort(protocol, hostname, service string, port int, resultChannel chan P
 
 	result.State = true
 	resultChannel <- result
+
 	return
 }
 
@@ -150,10 +151,19 @@ func ScanPorts(hostname string, ports Range) (ResultScan, error) {
 func DisplayScanResult(result ResultScan) {
 	ip := result.ip[len(result.ip)-1]
 	fmt.Printf("Open ports for %s (%s)\n\n", result.hostname, ip.String())
+
+	valid := true
+
 	for _, v := range result.results {
 		if v.State {
-			fmt.Printf("%d	%s\n", v.Port, v.Service)
+			valid = false
+			fmt.Printf("- [x] %d	%s\n", v.Port, v.Service)
 		}
 	}
+
+	if valid == true {
+		fmt.Printf("- [x] No open ports found!")
+	}
+
 	fmt.Printf("\n")
 }

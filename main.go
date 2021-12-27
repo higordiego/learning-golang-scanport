@@ -31,7 +31,6 @@ func main() {
 		return
 	}
 
-	model.GetOpenPorts(*host, model.Range{Start: 0, End: i})
-
+	model.GetOpenPorts(*host, model.Range{Start: 1, End: i})
 	model.Signature()
 }
